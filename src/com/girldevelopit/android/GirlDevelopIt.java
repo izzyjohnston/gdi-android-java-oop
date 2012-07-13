@@ -1,19 +1,49 @@
 package com.girldevelopit.android;
 
+import android.app.Application;
 import com.girldevelopit.android.models.ImageModel;
-
+import com.girldevelopit.android.utils.DataStore;
 import java.io.File;
 import java.util.ArrayList;
 
-/**
- * Created with IntelliJ IDEA.
- * User: izzyjohnston
- * Date: 7/6/12
- * Time: 6:39 PM
- * To change this template use File | Settings | File Templates.
- */
-public class GirlDevelopIt {
-    public static ArrayList<ImageModel> IMAGES = new ArrayList<ImageModel>();
-    public static String USERNAME = "Girl Develop It";
-    public static File cacheDir;
+
+public class GirlDevelopIt extends Application {
+    private DataStore store;
+
+    @Override
+    public void onCreate()
+    {
+        super.onCreate();
+        store = new DataStore(this);
+    }
+
+
+    public void setImages(ArrayList<ImageModel> img){
+        store.saveExternalImageData(img);
+    }
+    public ArrayList<ImageModel> getImages(){
+        return store.getExternalImageData();
+    }
+
+    public void setUsername(String name){
+        store.saveToPrefs("USERNAME", name);
+    }
+
+    public String getUsername(){
+        return store.getFromPrefs("USERNAME", "");
+    }
+
+    public File getCacheDir(){
+        File cachedir;
+        if (android.os.Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED)){
+            cachedir = new File(android.os.Environment.getExternalStorageDirectory(),"GirlDevelopItAndroid");
+        }
+        else{
+            cachedir = getCacheDir();
+        }
+
+        if(!cachedir.exists())
+            cachedir.mkdirs();
+        return  cachedir;
+    }
 }

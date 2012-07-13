@@ -20,29 +20,49 @@ import com.girldevelopit.android.utils.Utils;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
 import java.util.Date;
-
-public class MainActivity extends Activity
+//this is the activity that the user will use to take a picture, add a title and description and save it to our list of pictures
+//it extends activity which is the android class that allows you to build any class that the user
+//interacts with
+public class PictureActivity extends Activity
 {
+    private GirlDevelopIt app;
+
+    //when we take or select a photo, we have to do something with the picture we get back
+    //these integers are our way of knowing if we took a picture or selected an existing picture
     private final int ACTIVITY_TAKE_PHOTO = 1;
     private final int ACTIVITY_SELECT_PHOTO = 2;
 
+    //there are three elements in our layout that we will want to get data from, we declare them here and initialize them below
     private ImageView pictureFromCamera;
     private EditText titleField;
     private EditText descriptionField;
+
+    //in order to save our image, we need to know the file name
     private String pathToImage ="";
-    DataStore store;
-    /** Called when the activity is first created. */
+
+    /** Called when the activity is first created.
+     The code in here is what the phone goes through first
+     The @override is there because onCreate is a function in the Activity class we extended
+     we override the default functionality of that method. The default functionality is just to
+     create an acitivity that the user can see. we want to do that AND make that activity look
+     and act like the one we are trying to build. Every single activity in every single android
+     application has this function
+     */
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.picture);
+        this.app = (GirlDevelopIt)getApplicationContext();
+        initElements();
+    }
+
+    private void initElements(){
         pictureFromCamera = (ImageView)this.findViewById(R.id.pictureFromCamera);
         titleField = (EditText)this.findViewById(R.id.titleField);
         descriptionField = (EditText) this.findViewById(R.id.descriptionField);
-        store = new DataStore(this);
-        GirlDevelopIt.IMAGES = store.getExternalImageData();
     }
 
     public void takePicture(View view){
@@ -122,10 +142,13 @@ public class MainActivity extends Activity
             alert.show();
         }
         else{
-            ImageModel imageModel = new ImageModel(imageTitle, GirlDevelopIt.USERNAME, imageDescription, pathToImage, new Date().getTime());
-            GirlDevelopIt.IMAGES.add(imageModel);
-            store = new DataStore(this);
-            store.saveExternalImageData(GirlDevelopIt.IMAGES);
+            ImageModel imageModel = new ImageModel(imageTitle, app.getUsername(), imageDescription, pathToImage, new Date().getTime());
+            ArrayList<ImageModel> imageList = app.getImages();
+            imageList.add(0, imageModel);
+            app.setImages(imageList);
+            Intent intent = new Intent(PictureActivity.this, GalleryActivity.class);
+            startActivity(intent);
+            finish();
         }
     }
 }

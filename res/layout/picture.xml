@@ -25,7 +25,7 @@
                   android:orientation="horizontal">
         <Button android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:text="Take New Picture"
+                android:text="Take Picture"
                 android:onClick="takePicture"
                 android:layout_weight="1"
                 />

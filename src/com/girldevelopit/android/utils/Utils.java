@@ -13,13 +13,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-/**
- * Created with IntelliJ IDEA.
- * User: izzyjohnston
- * Date: 7/4/12
- * Time: 2:47 PM
- * To change this template use File | Settings | File Templates.
- */
 public class Utils {
 
     /**

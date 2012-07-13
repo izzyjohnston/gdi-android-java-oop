@@ -2,13 +2,6 @@ package com.girldevelopit.android.models;
 
 import java.io.Serializable;
 
-/**
- * Created with IntelliJ IDEA.
- * User: izzyjohnston
- * Date: 7/6/12
- * Time: 6:29 PM
- * To change this template use File | Settings | File Templates.
- */
 public class ImageModel implements Serializable{
     private String title;
     private String username;
