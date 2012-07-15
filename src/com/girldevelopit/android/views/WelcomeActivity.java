@@ -108,11 +108,11 @@ public class WelcomeActivity extends Activity
         initElements();
     }
     /*
-    	this function is called when the user presses the add a picture button. it creates an intent which will have WelcomeActivity.this as the "from" parameter and PictureActivity.class as the "to" parameter
+    	this function is called when the user presses the add a takepicture button. it creates an intent which will have WelcomeActivity.this as the "from" parameter and TakePictureActivity.class as the "to" parameter
     */
 
     public void openPictureActivity(View view){
-        Intent intent = new Intent(WelcomeActivity.this, PictureActivity.class);
+        Intent intent = new Intent(WelcomeActivity.this, TakePictureActivity.class);
         startActivity(intent);
     }
 

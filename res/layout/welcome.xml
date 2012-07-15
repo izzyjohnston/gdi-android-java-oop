@@ -16,7 +16,8 @@
               android:layout_height="wrap_content"
               android:inputType="textCapSentences"
               android:hint="Enter username"
-              android:id="@+id/usernameField"/>
+              android:id="@+id/usernameField"
+              android:textColor="@color/RED"/>
     <Button android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Sign in"

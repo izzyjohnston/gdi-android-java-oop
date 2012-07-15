@@ -70,12 +70,12 @@ public class ImageListAdapter extends BaseAdapter {
         //get the file on the phone associated with that path name
         File selFile=new File(pathToImage);
         //make a bitmap out of the raw data of the file (remember computers still think everything is
-        //all ones and zeroes so we have to explicitly tell it that our picture is in fact a picture
+        //all ones and zeroes so we have to explicitly tell it that our takepicture is in fact a takepicture
         Bitmap thumbnailBmp = Utils.decodeFile(selFile);
         //we set the bitmap of our image view as the bitmap we just made
         imageThumbnail.setImageBitmap(thumbnailBmp);
         //now, we set the scale type. because this is only a thumbnail, the thumbnail won't be able to 
-        //show the whole picture clearly so we crop it to just show the center square
+        //show the whole takepicture clearly so we crop it to just show the center square
         imageThumbnail.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
         //get the texview in our layout where we want to put our title

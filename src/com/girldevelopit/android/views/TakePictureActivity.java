@@ -10,35 +10,35 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import com.girldevelopit.android.GirlDevelopIt;
 import com.girldevelopit.android.R;
 import com.girldevelopit.android.models.ImageModel;
-import com.girldevelopit.android.utils.DataStore;
 import com.girldevelopit.android.utils.Utils;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
-//this is the activity that the user will use to take a picture, add a title and description and save it to our list of pictures
+//this is the activity that the user will use to take a takepicture, add a title and description and save it to our list of pictures
 //it extends activity which is the android class that allows you to build any class that the user
 //interacts with
-public class PictureActivity extends Activity
+public class TakePictureActivity extends Activity
 {
     private GirlDevelopIt app;
 
-    //when we take or select a photo, we have to do something with the picture we get back
-    //these integers are our way of knowing if we took a picture or selected an existing picture
+    //when we take or select a photo, we have to do something with the takepicture we get back
+    //these integers are our way of knowing if we took a takepicture or selected an existing takepicture
     private final int ACTIVITY_TAKE_PHOTO = 1;
     private final int ACTIVITY_SELECT_PHOTO = 2;
 
-    //there are three elements in our layout that we will want to get data from, we declare them here and initialize them below
+    //there are four elements in our layout that we will want to get data from, we declare them here and initialize them below
     private ImageView pictureFromCamera;
     private EditText titleField;
     private EditText descriptionField;
-
+    private Button savePicture;
     //in order to save our image, we need to know the file name
     private String pathToImage ="";
 
@@ -54,7 +54,7 @@ public class PictureActivity extends Activity
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.picture);
+        setContentView(R.layout.takepicture);
         this.app = (GirlDevelopIt)getApplicationContext();
         initElements();
     }
@@ -63,6 +63,10 @@ public class PictureActivity extends Activity
         pictureFromCamera = (ImageView)this.findViewById(R.id.pictureFromCamera);
         titleField = (EditText)this.findViewById(R.id.titleField);
         descriptionField = (EditText) this.findViewById(R.id.descriptionField);
+        savePicture = (Button) this.findViewById(R.id.savePicture);
+        if(app.getUsername()==null || app.getUsername().equals("")){
+            savePicture.setEnabled(false);
+        }
     }
 
     public void takePicture(View view){
@@ -146,7 +150,7 @@ public class PictureActivity extends Activity
             ArrayList<ImageModel> imageList = app.getImages();
             imageList.add(0, imageModel);
             app.setImages(imageList);
-            Intent intent = new Intent(PictureActivity.this, GalleryActivity.class);
+            Intent intent = new Intent(TakePictureActivity.this, GalleryActivity.class);
             startActivity(intent);
             finish();
         }

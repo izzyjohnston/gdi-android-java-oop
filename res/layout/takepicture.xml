@@ -14,12 +14,14 @@
               android:layout_height="wrap_content"
               android:inputType="textCapSentences"
               android:hint="Add title"
-              android:id="@+id/titleField"/>
+              android:id="@+id/titleField"
+              android:textColor="@color/PURPLE"/>
     <EditText android:layout_width="fill_parent"
               android:layout_height="wrap_content"
               android:inputType="textCapSentences"
               android:hint="Add description"
-              android:id="@+id/descriptionField"/>
+              android:id="@+id/descriptionField"
+              android:textColor="@color/PURPLE"/>
     <LinearLayout android:layout_width="fill_parent"
                   android:layout_height="48dip"
                   android:orientation="horizontal">
@@ -43,6 +45,7 @@
     <Button android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Done"
+            android:id="@+id/savePicture"
             android:onClick="save"/>
 
 </LinearLayout>

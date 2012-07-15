@@ -18,7 +18,10 @@
         <activity android:name=".views.GalleryActivity"
                   android:configChanges="keyboardHidden|orientation"
                   android:screenOrientation="portrait"/>
-        <activity android:name=".views.PictureActivity"
+        <activity android:name=".views.TakePictureActivity"
+                  android:configChanges="keyboardHidden|orientation"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".views.ViewPictureActivity"
                   android:configChanges="keyboardHidden|orientation"
                   android:screenOrientation="portrait"/>
     </application>
