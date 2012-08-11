@@ -4,9 +4,6 @@
           android:versionCode="1"
           android:versionName="1.0">
     <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="15"/>
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <application android:label="@string/app_name" android:icon="@drawable/ic_launcher" android:name="GirlDevelopIt">
         <activity android:name=".views.WelcomeActivity"
                   android:label="@string/app_name">
@@ -15,14 +12,5 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".views.GalleryActivity"
-                  android:configChanges="keyboardHidden|orientation"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".views.TakePictureActivity"
-                  android:configChanges="keyboardHidden|orientation"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".views.ViewPictureActivity"
-                  android:configChanges="keyboardHidden|orientation"
-                  android:screenOrientation="portrait"/>
     </application>
 </manifest>

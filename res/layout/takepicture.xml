@@ -6,47 +6,6 @@
     android:padding="8dip"
     android:background="@color/WHITE"
     >
-    <TextView android:layout_width="fill_parent"
-              android:layout_height="wrap_content"
-              android:text="Upload an image!"
-              android:textColor="@color/GREEN"/>
-    <EditText android:layout_width="fill_parent"
-              android:layout_height="wrap_content"
-              android:inputType="textCapSentences"
-              android:hint="Add title"
-              android:id="@+id/titleField"
-              android:textColor="@color/PURPLE"/>
-    <EditText android:layout_width="fill_parent"
-              android:layout_height="wrap_content"
-              android:inputType="textCapSentences"
-              android:hint="Add description"
-              android:id="@+id/descriptionField"
-              android:textColor="@color/PURPLE"/>
-    <LinearLayout android:layout_width="fill_parent"
-                  android:layout_height="48dip"
-                  android:orientation="horizontal">
-        <Button android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:text="Take Picture"
-                android:onClick="takePicture"
-                android:layout_weight="1"
-                />
-        <Button android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:text="Choose Picture"
-                android:onClick="choosePicture"
-                android:layout_weight="1"/>
-    </LinearLayout>
-
-    <ImageView android:layout_height="wrap_content"
-               android:layout_width="fill_parent"
-               android:id="@+id/pictureFromCamera"
-               android:layout_weight="1"/>
-    <Button android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Done"
-            android:id="@+id/savePicture"
-            android:onClick="save"/>
 
 </LinearLayout>
 

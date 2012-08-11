@@ -6,52 +6,6 @@
               android:padding="8dip"
               android:background="@color/WHITE"
         >
-    <LinearLayout  android:orientation="horizontal"
-                   android:layout_width="fill_parent"
-                   android:layout_height="wrap_content">
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text="Taken by:"
-                  android:textColor="@color/PURPLE"
-                  android:paddingRight="16dip"/>
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text="username here"
-                  android:id="@+id/username"
-                  android:textColor="@color/BLACK"/>
-    </LinearLayout>
-    <LinearLayout  android:orientation="horizontal"
-                   android:layout_width="fill_parent"
-                   android:layout_height="wrap_content">
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text="Taken on:"
-                  android:textColor="@color/PURPLE"
-                  android:paddingRight="16dip"/>
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text="date here"
-                  android:id="@+id/date"
-                  android:textColor="@color/BLACK"/>
-    </LinearLayout>
-    <LinearLayout  android:orientation="horizontal"
-                   android:layout_width="fill_parent"
-                   android:layout_height="wrap_content">
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text="Description:"
-                  android:textColor="@color/PURPLE"
-                  android:paddingRight="8dip"/>
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text="description here"
-                  android:id="@+id/description"
-                  android:textColor="@color/BLACK"/>
-    </LinearLayout>
 
-
-    <ImageView android:layout_height="fill_parent"
-               android:layout_width="fill_parent"
-               android:id="@+id/image"/>
-</LinearLayout>
+        </LinearLayout>
 
