@@ -30,10 +30,16 @@ public class TakePictureActivity extends Activity
 
     //when we take or select a photo, we have to do something with the takepicture we get back
     //these integers are our way of knowing if we took a takepicture or selected an existing takepicture
+    private final int ACTIVITY_TAKE_PHOTO = 1;
+    private final int ACTIVITY_SELECT_PHOTO = 2;
 
     //there are four elements in our layout that we will want to get data from, we declare them here and initialize them below
-
+    private ImageView pictureFromCamera;
+    private EditText titleField;
+    private EditText descriptionField;
+    private Button savePicture;
     //in order to save our image, we need to know the file name
+    private String pathToImage ="";
 
 
     /** Called when the activity is first created.
