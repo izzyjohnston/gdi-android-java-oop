@@ -13,6 +13,7 @@ import com.girldevelopit.android.models.ImageModel;
 import com.girldevelopit.android.utils.Utils;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 //base adapter is the class that allows us to build lists
@@ -21,13 +22,13 @@ import java.util.List;
 //extends BaseAdapter  
 public class ImageListAdapter extends BaseAdapter {
     //our private variables that are used in the methods in our class
-    private List<ImageModel> listItems;
+    private ArrayList<ImageModel> listItems;
     private final Context context;
     private LayoutInflater inflater;
 
     //the "constructor" method that our activity will call
     //it sets all the values for our private variables
-    public ImageListAdapter(Context context, List<ImageModel> listItems, LayoutInflater inflater) {
+    public ImageListAdapter(Context context, ArrayList<ImageModel> listItems, LayoutInflater inflater) {
         this.context = context;
         this.listItems = listItems;
         this.inflater = inflater;

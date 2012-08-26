@@ -76,7 +76,8 @@ public class TakePictureActivity extends Activity
     }
 
     public void choosePicture(View view){
-        startActivityForResult(new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI), ACTIVITY_SELECT_PHOTO);
+        final Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        startActivityForResult(intent, ACTIVITY_SELECT_PHOTO);
     }
 
     @Override
@@ -113,9 +114,7 @@ public class TakePictureActivity extends Activity
         if(requestCode == ACTIVITY_SELECT_PHOTO){
             try{
                 System.gc();
-                String filePath = Utils.getPath(data.getData(), getContentResolver());
-
-                pathToImage = new String(filePath);
+                pathToImage = Utils.getPath(data.getData(), getContentResolver());
 
                 File selFile=new File(pathToImage);
 

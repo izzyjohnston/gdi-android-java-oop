@@ -29,7 +29,7 @@ public class WelcomeActivity extends Activity
      The code in here is what the phone goes through first
      The @override is there because onCreate is a function in the Activity class we extended
      we override the default functionality of that method. The default functionali is just to
-     create an acitivity that the user can see. we want to do that AND make that activity look
+     create an activity that the user can see. we want to do that AND make that activity look
      and act like the one we are trying to build. Every single activity in every single android
      application has this function
      */
@@ -96,6 +96,7 @@ public class WelcomeActivity extends Activity
             //if there was data in the text box, save the username in the textbox and reload the elements on the screen by using initElements()
             app.setUsername(usernameField.getText().toString());
             usernameField.setText("");
+            int i = usernameField.getText().toString().length();
             initElements();
         }
     }
