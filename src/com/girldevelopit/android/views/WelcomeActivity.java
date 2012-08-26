@@ -113,7 +113,8 @@ public class WelcomeActivity extends Activity
     */
 
     public void openPictureActivity(View view){
-
+        Intent intent = new Intent(WelcomeActivity.this, TakePictureActivity.class);
+        startActivity(intent);
     }
 
     /*

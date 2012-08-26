@@ -22,10 +22,14 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int login=0x7f060002;
-        public static final int logout=0x7f060003;
-        public static final int usernameField=0x7f060001;
-        public static final int welcomeText=0x7f060000;
+        public static final int descriptionField=0x7f060001;
+        public static final int login=0x7f060006;
+        public static final int logout=0x7f060007;
+        public static final int pictureFromCamera=0x7f060002;
+        public static final int savePicture=0x7f060003;
+        public static final int titleField=0x7f060000;
+        public static final int usernameField=0x7f060005;
+        public static final int welcomeText=0x7f060004;
     }
     public static final class layout {
         public static final int gallery=0x7f030000;
