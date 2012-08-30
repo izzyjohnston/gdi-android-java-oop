@@ -20,7 +20,10 @@ import java.util.ArrayList;
  * This is the gallery activity which shows a list of all the pictures we have taken
  */
 public class GalleryActivity extends Activity {
+    private GirlDevelopIt app;
 
+    //the only element on the page is a listview
+    private ListView imageListView;
     /** Called when the activity is first created.
      The code in here is what the phone goes through first
      The @override is there because onCreate is a function in the Activity class we extended
@@ -33,7 +36,14 @@ public class GalleryActivity extends Activity {
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-
+        //set up which view we will be using
+        setContentView(R.layout.gallery);
+        //initialize our application
+        this.app = (GirlDevelopIt)getApplicationContext();
+        //initialize the elements in our view
+        initElements();
+        //populate our list view with the images we have taken
+        populateImagesList();
     }
 
     /**
@@ -41,13 +51,23 @@ public class GalleryActivity extends Activity {
      * set an on click listener to open up the view picture activity when you click on an item in the view
      */
     private void initElements(){
-
+        imageListView = (ListView)this.findViewById(R.id.imageListView);
+        //add on click listener so that clicking on a row in the list view
+        //opens up ViewPictureActivity
     }
 
     /**
      * "Inflate" our list using the image list adapter
      */
     private  void populateImagesList(){
-
+        //create an inflater that has the ability to build a view programmatically
+        LayoutInflater mLInflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        //create an imagelistadapter with the arraylist of images we have saved in our app
+        ImageListAdapter listAdapter = new ImageListAdapter(this, app.getImages(), mLInflater);
+        //set imagelistadapter as the adapter for our image list
+        imageListView.setAdapter(listAdapter);
+        //the next two lines inform the list view that it should load all the data from the adapter
+        imageListView.invalidateViews();
+        ((BaseAdapter)imageListView.getAdapter()).notifyDataSetChanged();
     }
 }

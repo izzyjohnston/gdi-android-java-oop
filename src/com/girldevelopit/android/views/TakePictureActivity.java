@@ -131,6 +131,28 @@ public class TakePictureActivity extends Activity
     }
 
     public void save(View v){
-
+        String imageTitle = titleField.getText().toString();
+        String imageDescription = descriptionField.getText().toString();
+        if(imageTitle.equals("") || imageDescription.equals("") || pathToImage.equals("")){
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("Sorry, all fields are required")
+                    .setCancelable(false)
+                    .setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog alert = builder.create();
+            alert.show();
+        }
+        else{
+            ImageModel imageModel = new ImageModel(imageTitle, app.getUsername(), imageDescription, pathToImage, new Date().getTime());
+            ArrayList<ImageModel> imageList = app.getImages();
+            imageList.add(0, imageModel);
+            app.setImages(imageList);
+            Intent intent = new Intent(TakePictureActivity.this, GalleryActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 }

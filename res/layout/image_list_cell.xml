@@ -4,5 +4,21 @@
         android:layout_width="fill_parent" android:layout_height="64dip"
         android:orientation="horizontal" android:baselineAligned="false"
         android:background="@color/WHITE">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="fill_parent"
+                  android:layout_height="fill_parent"  android:layout_weight="1"
+                  android:orientation="vertical" android:padding="8dip" android:gravity="center_vertical">
 
+        <TextView
+                android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="14dip"
+                android:text="Image Title Here"   android:textStyle="bold" android:ellipsize="end"
+                android:id="@+id/imageTitle" android:gravity="left|center_vertical" android:textColor="@color/GREEN" />
+    </LinearLayout>
+    <RelativeLayout android:layout_width="64dip"
+                    android:layout_height="64dip"
+            >
+        <ImageView
+                android:id="@+id/imageThumbnail" android:layout_width="fill_parent" android:layout_height="fill_parent"
+                android:scaleType="centerCrop" android:baselineAligned="false"/>
+    </RelativeLayout>
 </LinearLayout>

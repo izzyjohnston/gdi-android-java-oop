@@ -4,5 +4,8 @@
               android:layout_width="fill_parent"
               android:layout_height="fill_parent" android:padding="8dip"
               android:background="@color/WHITE">
+    <ListView android:layout_height="fill_parent"
+              android:layout_width="fill_parent"
+              android:id="@+id/imageListView"/>
 
 </LinearLayout>
